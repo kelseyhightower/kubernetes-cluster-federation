@@ -32,6 +32,8 @@ kubectl config use-context gke_hightowerlabs_us-central1-b_gce-us-central1
 
 ### Federation Namespace
 
+The Kubernetes federation control plane will run in the federation namespace. Create the federation namespace using kubectl:
+
 ```
 kubectl create -f ns/federation.yaml
 ```
