@@ -1,0 +1,10 @@
+apiVersion: federation/v1alpha1
+kind: Cluster
+metadata:
+  name: gce-us-central1
+spec:
+  serverAddressByClientCIDRs:
+    - clientCIDR: "0.0.0.0/0"
+      serverAddress: "SERVER_ADDRESS"
+  secretRef:
+    name: gce-us-central1
