@@ -123,7 +123,7 @@ federation-apiserver-116423504-4mwe8   2/2       Running   0          13s
 
 ### Federation Controller Manager Deployment
 
-#### Kubeconfig
+#### Create the Federated API Server Kubeconfig
 
 The federation-controller-manager needs a kubeconfig file to connect to the federation-apiserver.
 
