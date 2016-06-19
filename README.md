@@ -66,6 +66,10 @@ Edit known-tokens.csv to add a token to the first column of the first line. This
 XXXXXXXXXXXXXXXXXXX,admin,admin
 ```
 
+#### Create the federation-apiserver-secrets
+
+Store the `known-tokens.csv` file in a Kubernetes secret that will be accessed by the federated API server at deployment time.
+
 ```
 kubectl --namespace=federation \
   create secret generic federation-apiserver-secrets \
