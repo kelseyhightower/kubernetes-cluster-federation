@@ -90,6 +90,8 @@ advertiseAddress=$(kubectl --namespace=federation get services federation-apiser
   -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 ```
 
+Edit `deployments/federation-apiserver.yaml` and set the advertise address for the federated API server.
+
 ```
 sed -i "" "s|ADVERTISE_ADDRESS|${advertiseAddress}|g" deployments/federation-apiserver.yaml
 ```
