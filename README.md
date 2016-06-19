@@ -360,14 +360,6 @@ The Federated controller manager creates DNS entires in the configured zone.
 
 ## Cleanup
 
-### DNS Managed Zone
-
-The managed zone must be empty before you can delete it. Visit the Cloud DNS console and delete all resource records before running the following command:
-
-```
-gcloud dns managed-zones delete federation
-```
-
 ### Kubernetes Objects
 
 ```
@@ -376,6 +368,14 @@ kubectl --context=federation-cluster delete services nginx
 
 ```
 kubectl --namespace=federation delete pods,svc,rc,deployment,secret --all
+```
+
+### DNS Managed Zone
+
+The managed zone must be empty before you can delete it. Visit the Cloud DNS console and delete all resource records before running the following command:
+
+```
+gcloud dns managed-zones delete federation
 ```
 
 ### GKE Clusters
