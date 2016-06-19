@@ -203,6 +203,8 @@ federation-controller-manager-1899587413-c1c1w   1/1       Running   0          
 
 ## Adding Clusters
 
+With the federated control plane in place we are ready to start adding clusters to our federation.
+
 ### gce-asia-east1
 
 ```
@@ -216,7 +218,6 @@ kubectl --context=federation-cluster \
 ```
 
 ### gce-europe-west1
-
 
 ```
 kubectl --namespace=federation create secret generic gce-europe-west1 \
@@ -251,6 +252,8 @@ kubectl --namespace=federation create secret generic gce-us-east1 \
 kubectl --context=federation-cluster \
   create -f clusters/gce-us-east1.yaml
 ```
+
+### Verify
 
 ```
 kubectl --context=federation-cluster get clusters
