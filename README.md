@@ -37,7 +37,7 @@ List all contexts in your local kubeconfig:
 for c in $(kubectl config view -o jsonpath='{.contexts[*].name}'); do echo $c; done
 ```
 
-Both services need to run in a host Kubernetes cluster. Use the gce-us-central1 clusters as the host cluster.
+Both services need to run in a host Kubernetes cluster. Use the gce-us-central1 cluster as the host cluster.
 
 ```
 kubectl config use-context gke_hightowerlabs_us-central1-b_gce-us-central1
