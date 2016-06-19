@@ -40,6 +40,8 @@ kubectl create -f ns/federation.yaml
 
 ### Federated API Server Service
 
+The federated controller manager must be able to locate the federated API server when running on the host cluster.
+
 ```
 kubectl create -f services/federation-apiserver.yaml
 ```
