@@ -219,6 +219,8 @@ kubectl --context=federation-cluster create -f services/nginx.yaml
 kubectl --context=federation-cluster describe services nginx
 ```
 
+### Create Nginx Deployments
+
 ```
 kubectl --context="gke_hightowerlabs_asia-east1-b_gce-asia-east1" \
   run nginx --image=nginx:1.11.1-alpine --port=80
@@ -238,6 +240,12 @@ kubectl --context=gke_hightowerlabs_us-central1-b_gce-us-central1 \
 kubectl --context="gke_hightowerlabs_us-east1-b_gce-us-east1" \
   run nginx --image=nginx:1.11.1-alpine --port=80
 ```
+
+### Review Cloud DNS Console
+
+The Federated controller manager creates DNS entires in the configured zone.
+
+![Google Cloud DNS](images/googledns.png)
 
 ## Cleanup
 
