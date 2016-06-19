@@ -2,10 +2,14 @@
 
 ### Setup Cluster Configurations
 
-The are two configuration files needed for each cluster in the federation.
+There are two configuration files needed for each cluster to join them to a federation.
 
 * cluster config
 * kubeconfig
+
+The `cluster config` is a Kubernetes cluster object and holds information required by the Kubernetes Federated Controller Manager to add a cluster to a federation.
+
+The `kubeconfig` file is a standard Kubernetes configuration object that is used to provide API Server credentials to Kubernetes clients. You will need one `kubeconfig` file for each cluster in the federation.
 
 #### Configuring kubeconfig
 
