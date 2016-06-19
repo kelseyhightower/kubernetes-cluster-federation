@@ -34,6 +34,10 @@ gcloud container clusters create gce-us-central1 \
   --zone=us-central1-b
 ```
 
+### Verify
+
+At this point you should have 4 Kubernetes clusters running across 4 GCP regions.
+
 ```
 gcloud container clusters list
 ```
