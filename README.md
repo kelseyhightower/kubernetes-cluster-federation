@@ -105,9 +105,18 @@ kubectl create -f deployments/federation-apiserver.yaml
 ```
 kubectl --namespace=federation get deployments
 ```
+```
+NAME                   DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+federation-apiserver   1         1         1            0           7s
+kubernetes-cluster-federation $ kubectl --namespace=federation get pods
+```
 
 ```
 kubectl --namespace=federation get pods
+```
+```
+NAME                                   READY     STATUS    RESTARTS   AGE
+federation-apiserver-116423504-4mwe8   2/2       Running   0          13s
 ```
 
 ### Kubeconfig
