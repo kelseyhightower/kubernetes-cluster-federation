@@ -96,6 +96,8 @@ Edit `deployments/federation-apiserver.yaml` and set the advertise address for t
 sed -i "" "s|ADVERTISE_ADDRESS|${advertiseAddress}|g" deployments/federation-apiserver.yaml
 ```
 
+Create the federated API server in the host cluster:
+
 ```
 kubectl create -f deployments/federation-apiserver.yaml
 ```
