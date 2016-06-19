@@ -208,7 +208,7 @@ federation-controller-manager-1899587413-c1c1w   1/1       Running   0          
 
 With the federated control plane in place we are ready to start adding clusters to our federation.
 
-> kubectl 1.3.0 or later is required to work with a federated Kubernetes control plane. See the [prerequisites](#Prerequisites) 
+> kubectl 1.3.0 or later is required to work with a federated Kubernetes control plane. See the [prerequisites](#prerequisites) 
 
 ### gce-asia-east1
 
