@@ -265,22 +265,11 @@ kubectl delete pods,svc,rc,deployment,secret --namespace=federation --all
 
 ### GKE Clusters
 
-```
-gcloud container clusters delete gce-asia-east1 \
-  --zone=asia-east1-b
-```
+Delete the 4 GKE clusters.
 
 ```
-gcloud container clusters delete gce-europe-west1 \
-  --zone=europe-west1-b
-```
-
-```
-gcloud container clusters delete gce-us-central1 \
-  --zone=us-central1-b
-```
-
-```
-gcloud container clusters delete gce-us-east1 \
-  --zone=us-east1-b
+gcloud container clusters delete gce-asia-east1 --zone=asia-east1-b
+gcloud container clusters delete gce-europe-west1 --zone=europe-west1-b
+gcloud container clusters delete gce-us-central1 --zone=us-central1-b
+gcloud container clusters delete gce-us-east1 --zone=us-east1-b
 ```
