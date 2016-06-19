@@ -121,7 +121,9 @@ NAME                                   READY     STATUS    RESTARTS   AGE
 federation-apiserver-116423504-4mwe8   2/2       Running   0          13s
 ```
 
-### Kubeconfig
+### Federation Controller Manager Deployment
+
+#### Kubeconfig
 
 The federation-controller-manager needs a kubeconfig file to connect to the federation-apiserver.
 
@@ -169,11 +171,13 @@ kubectl create secret generic federation-apiserver-secret \
 kubectl --namespace=federation describe secrets federation-apiserver-secret
 ```
 
-### Federated Controller Manager
+#### Deploy the Federated Controller Manager
 
 ```
 kubectl create -f deployments/federation-controller-manager.yaml
 ```
+
+#### Verify
 
 ```
 kubectl --namespace=federation get pods
