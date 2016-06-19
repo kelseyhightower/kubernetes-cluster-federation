@@ -102,6 +102,8 @@ Create the federated API server in the host cluster:
 kubectl create -f deployments/federation-apiserver.yaml
 ```
 
+#### Verify
+
 ```
 kubectl --namespace=federation get deployments
 ```
