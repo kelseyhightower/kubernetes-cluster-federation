@@ -16,7 +16,7 @@ Next complete each of the following tasks in order.
 * [Provision Kubernetes Clusters](labs/cluster-bootstrap.md)
 * [Create Cluster Secrets and Manifests](labs/create-cluster-secrets-and-manifests.md)
 * [Create GCE DNS Managed Zone](labs/cluster-dns-managed-zone.md)
-* [Download and Updated Kubernetes - kubectl 1.3.0+](labs/download-an-updated-kubectl-client.md)
+* [Download an Updated Kubernetes](labs/download-an-updated-kubectl-client.md)
 
 > kubectl 1.3.0 or later is required to work with a federated Kubernetes control plane.
 
