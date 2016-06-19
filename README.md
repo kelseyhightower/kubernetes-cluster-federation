@@ -18,6 +18,8 @@ Next complete each of the following tasks in order.
 * [Create GCE DNS Managed Zone](labs/cluster-dns-managed-zone.md)
 * [Download and Updated Kubernetes - kubectl 1.3.0+](labs/download-an-updated-kubectl-client.md)
 
+> kubectl 1.3.0 or later is required to work with a federated Kubernetes control plane.
+
 ## Provision Federated Control Plane
 
 The Kubernetes federated control plane consists of two services:
