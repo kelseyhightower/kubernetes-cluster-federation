@@ -16,6 +16,7 @@ Next complete each of the following tasks in order.
 * [Provision Kubernetes Clusters](labs/cluster-bootstrap.md)
 * [Create Cluster Secrets and Manifests](labs/create-cluster-secrets-and-manifests.md)
 * [Create GCE DNS Managed Zone](labs/cluster-dns-managed-zone.md)
+* [Download an updated kubectl](labs/download-an-updated-kubectl-client.md)
 
 ## Provision Federated Control Plane
 
