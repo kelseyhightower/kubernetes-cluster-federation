@@ -127,10 +127,14 @@ federation-apiserver-116423504-4mwe8   2/2       Running   0          13s
 
 The federation-controller-manager needs a kubeconfig file to connect to the federation-apiserver.
 
+Get the federated API server public IP address:
+
 ```
 advertiseAddress=$(kubectl --namespace=federation get services federation-apiserver \
   -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 ```
+
+Use the `kubectl config` command to build up a kubeconfig file for the federated API server:
 
 ```
 kubectl config set-cluster federation-cluster \
@@ -148,6 +152,8 @@ kubectl config set-context federation-cluster \
   --cluster=federation-cluster \
   --user=federation-cluster
 ```
+
+Switch to the `federation-cluster` context and dump the federated API server credentials:
 
 ```
 kubectl config use-context federation-cluster
