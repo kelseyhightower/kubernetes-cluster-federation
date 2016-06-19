@@ -4,12 +4,16 @@ This guide will walk you through testing the upcoming support for cluster federa
 
 ## Prerequisites
 
+### Clone This Repository
+
 Frist checkout this repostory which contains the Kubernetes configs required to build the federated control plane.
 
 ```
 git clone https://github.com/kelseyhightower/kubernetes-cluster-federation.git
 cd kubernetes-cluster-federation
 ```
+
+### Bootrapping Tasks
 
 Next complete each of the following tasks in order.
 
