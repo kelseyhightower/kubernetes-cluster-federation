@@ -1,6 +1,6 @@
 # Cluster Bootstrap
 
-This tutorial will walk you through setting up Kubernetes clusters in 4 GCP regions.
+This tutorial will walk you through setting up Kubernetes clusters in 4 GCP regions using GKE.
 
 ## Create Clusters
 
