@@ -4,6 +4,15 @@ This guide will walk you through testing the upcoming support for cluster federa
 
 ## Prerequisites
 
+Frist checkout this repostory which contains the Kubernetes configs required to build the federated control plane.
+
+```
+git clone https://github.com/kelseyhightower/kubernetes-cluster-federation.git
+cd kubernetes-cluster-federation
+```
+
+Next complete each of the following tasks in order.
+
 * [Provision Kubernetes Clusters](labs/cluster-bootstrap.md)
 * [Create Cluster Secrets and Manifests](labs/create-cluster-secrets-and-manifests.md)
 * [Create GCE DNS Managed Zone](labs/cluster-dns-managed-zone.md)
