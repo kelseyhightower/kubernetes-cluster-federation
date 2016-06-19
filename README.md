@@ -183,16 +183,22 @@ Verify
 kubectl --namespace=federation describe secrets federation-apiserver-secret
 ```
 
-#### Deploy the Federated Controller Manager
+### Deploy the Federated Controller Manager
 
 ```
 kubectl create -f deployments/federation-controller-manager.yaml
 ```
 
-#### Verify
+Wait for the `federation-controller-manager` pod to be running.
 
 ```
 kubectl --namespace=federation get pods
+```
+
+```
+NAME                                             READY     STATUS    RESTARTS   AGE
+federation-apiserver-116423504-4mwe8             2/2       Running   0          12m
+federation-controller-manager-1899587413-c1c1w   1/1       Running   0          16s
 ```
 
 ## Adding Clusters
