@@ -162,6 +162,8 @@ kubectl config set-credentials federation-cluster \
   --token=changeme
 ```
 
+> The `--token` flag must be set to the same token used in the known-tokens.csv.
+
 ```
 kubectl config set-context federation-cluster \
   --cluster=federation-cluster \
