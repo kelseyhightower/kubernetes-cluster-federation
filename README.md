@@ -58,7 +58,9 @@ federation-apiserver   10.119.242.80   XX.XXX.XX.XX   443/TCP   1m
 
 ### Federation API Server Secret
 
-Edit known-tokens.csv
+In this section you will create a set of credentials to limit access to the federated API server.
+
+Edit known-tokens.csv to add a token to the first column of the first line. This token will be used to authenticate Kubernetes clients.
 
 ```
 XXXXXXXXXXXXXXXXXXX,admin,admin
