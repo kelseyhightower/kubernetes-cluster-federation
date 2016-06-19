@@ -279,6 +279,8 @@ Create a federated service object in the `federation-cluster` context.
 kubectl --context=federation-cluster create -f services/nginx.yaml
 ```
 
+Wait until the nginx service is propagated across all 4 clusters and the federated service is updated with the details.
+
 ```
 kubectl --context=federation-cluster describe services nginx
 ```
