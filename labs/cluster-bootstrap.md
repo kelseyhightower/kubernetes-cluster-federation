@@ -11,6 +11,8 @@ Use the `gcloud container clusters create` command to create a Kubernetes cluste
 * us-east1-b
 * us-central1-b 
 
+Run the following commands in a different tab to build the clusters in parallel.
+
 ```
 gcloud container clusters create gce-asia-east1 \
   --scopes cloud-platform \
