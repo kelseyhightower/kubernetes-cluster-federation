@@ -371,7 +371,11 @@ gcloud dns managed-zones delete federation
 ### Kubernetes Objects
 
 ```
-kubectl delete pods,svc,rc,deployment,secret --namespace=federation --all
+kubectl --context=federation-cluster delete services nginx
+```
+
+```
+kubectl --namespace=federation delete pods,svc,rc,deployment,secret --all
 ```
 
 ### GKE Clusters
