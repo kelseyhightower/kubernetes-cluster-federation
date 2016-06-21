@@ -125,7 +125,6 @@ kubectl --namespace=federation get deployments
 ```
 NAME                   DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
 federation-apiserver   1         1         1            0           7s
-kubernetes-cluster-federation $ kubectl --namespace=federation get pods
 ```
 
 ```
