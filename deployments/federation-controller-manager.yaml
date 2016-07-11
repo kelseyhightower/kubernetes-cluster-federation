@@ -13,15 +13,24 @@ spec:
         app: federated-cluster
         module: federation-controller-manager
     spec:
+      volumes:
+      - name: ssl
+        hostPath:
+          path: /etc/ssl
       containers:
       - name: controller-manager
-        image: kelseyhightower/federation-controller-manager:1.3.0-2
+        image: gcr.io/google_containers/federation-controller-manager:v1.3.0
         args:
+          - /usr/local/bin/federation-controller-manager
           - --master=https://federation-apiserver:443
           - --dns-provider=google-clouddns
           - --federation-name=federation
           - --zone-name=federation.com.
           - --v=2
+        volumeMounts:
+        - name: ssl
+          readOnly: true
+          mountPath: /etc/ssl
         ports:
           - containerPort: 443
             name: https
