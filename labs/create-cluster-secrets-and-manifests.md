@@ -50,7 +50,7 @@ For each cluster create a kubeconfig file and update the corresponding cluster m
 ```
 kubectl config use-context gke_hightowerlabs_asia-east1-b_gce-asia-east1
 serverAddress=$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')
-sed -i "" "s|SERVER_ADDRESS|${serverAddress}|g" clusters/gce-asia-east1.yaml
+sed -i "s|SERVER_ADDRESS|${serverAddress}|g" clusters/gce-asia-east1.yaml
 kubectl config view --flatten --minify > kubeconfigs/gce-asia-east1/kubeconfig
 ```
 
@@ -59,7 +59,7 @@ kubectl config view --flatten --minify > kubeconfigs/gce-asia-east1/kubeconfig
 ```
 kubectl config use-context gke_hightowerlabs_europe-west1-b_gce-europe-west1
 serverAddress=$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')
-sed -i "" "s|SERVER_ADDRESS|${serverAddress}|g" clusters/gce-europe-west1.yaml
+sed -i "s|SERVER_ADDRESS|${serverAddress}|g" clusters/gce-europe-west1.yaml
 kubectl config view --flatten --minify > kubeconfigs/gce-europe-west1/kubeconfig
 ```
 
@@ -68,7 +68,7 @@ kubectl config view --flatten --minify > kubeconfigs/gce-europe-west1/kubeconfig
 ```
 kubectl config use-context gke_hightowerlabs_us-central1-b_gce-us-central1
 serverAddress=$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')
-sed -i "" "s|SERVER_ADDRESS|${serverAddress}|g" clusters/gce-us-central1.yaml
+sed -i "s|SERVER_ADDRESS|${serverAddress}|g" clusters/gce-us-central1.yaml
 kubectl config view --flatten --minify > kubeconfigs/gce-us-central1/kubeconfig
 ```
 
@@ -77,7 +77,7 @@ kubectl config view --flatten --minify > kubeconfigs/gce-us-central1/kubeconfig
 ```
 kubectl config use-context gke_hightowerlabs_us-east1-b_gce-us-east1
 serverAddress=$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')
-sed -i "" "s|SERVER_ADDRESS|${serverAddress}|g" clusters/gce-us-east1.yaml
+sed -i "s|SERVER_ADDRESS|${serverAddress}|g" clusters/gce-us-east1.yaml
 kubectl config view --flatten --minify > kubeconfigs/gce-us-east1/kubeconfig
 ```
 
