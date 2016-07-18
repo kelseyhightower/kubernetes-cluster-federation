@@ -1,4 +1,4 @@
-apiVersion: federation/v1alpha1
+apiVersion: federation/v1beta1
 kind: Cluster
 metadata:
   name: gce-us-central1
