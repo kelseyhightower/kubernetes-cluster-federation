@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: apiserver
-        image: kelseyhightower/federation-apiserver:a03b7405e5c8f09629c5a50f15641fed
+        image: gcr.io/google_containers/federation-apiserver:v1.3.0
         command:
           - /usr/local/bin/federation-apiserver
           - --bind-address=0.0.0.0
