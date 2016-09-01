@@ -48,8 +48,8 @@ gcloud container clusters list
 
 ```
 NAME              ZONE            MASTER_VERSION  MASTER_IP       NUM_NODES  STATUS
-gce-asia-east1    asia-east1-b    1.2.4           104.XXX.XXX.XXX 3          RUNNING
-gce-europe-west1  europe-west1-b  1.2.4           130.XXX.XX.XX   3          RUNNING
-gce-us-central1   us-central1-b   1.2.4           104.XXX.XXX.XX  3          RUNNING
-gce-us-east1      us-east1-b      1.2.4           104.XXX.XX.XXX  3          RUNNING
+gce-asia-east1    asia-east1-b    1.3.6           104.XXX.XXX.XXX 3          RUNNING
+gce-europe-west1  europe-west1-b  1.3.6           130.XXX.XX.XX   3          RUNNING
+gce-us-central1   us-central1-b   1.3.6           104.XXX.XXX.XX  3          RUNNING
+gce-us-east1      us-east1-b      1.3.6           104.XXX.XX.XXX  3          RUNNING
 ```
