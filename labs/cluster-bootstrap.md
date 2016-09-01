@@ -31,8 +31,11 @@ gcloud container clusters create gce-us-east1 \
 ```
 gcloud container clusters create gce-us-central1 \
   --scopes cloud-platform \
-  --zone=us-central1-b
+  --zone=us-central1-b \
+  --scopes "storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
+
+Notice that `gce-us-central1` has included additional scopes to manipulate Cloud DNS zones.
 
 ### Verify
 
