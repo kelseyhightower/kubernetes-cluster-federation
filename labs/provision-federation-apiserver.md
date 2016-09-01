@@ -43,6 +43,35 @@ kubectl --namespace=federation \
 
 ## Federation API Server Deployment
 
+### Create a Persistent Volume Claim
+
+The Federated API Server leverages etcd to store cluster configuration and should be backed by a persistent disk. For production setups consider moving etcd into its own deployment.
+
+Create a persistent disk for the federated API server:
+
+```
+kubectl create -f pvc/federation-apiserver-etcd.yaml
+```
+
+#### Verify
+
+```
+kubectl get pvc --namespace=federation
+```
+```
+NAME                        STATUS    VOLUME                                     CAPACITY   ACCESSMODES   AGE
+federation-apiserver-etcd   Bound     pvc-c49027d3-7099-11e6-848d-42010af00158   10Gi       RWO           5s
+```
+```
+kubernetes-cluster-federation $ kubectl get pv --namespace=federation
+```
+```
+NAME                                       CAPACITY   ACCESSMODES   STATUS    CLAIM                                  REASON    AGE
+pvc-c49027d3-7099-11e6-848d-42010af00158   10Gi       RWO           Bound     federation/federation-apiserver-etcd             8s
+```
+
+### Create the Deployment
+
 Get the federated API server public IP address.
 
 ```
