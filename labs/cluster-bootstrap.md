@@ -13,21 +13,32 @@ Use the `gcloud container clusters create` command to create a Kubernetes cluste
 
 Run the following commands in a different tab to build the clusters in parallel.
 
+### gce-asia-east1
+
 ```
 gcloud container clusters create gce-asia-east1 \
   --zone asia-east1-b \
   --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
+
+### gce-europe-west1
+
 ```
 gcloud container clusters create gce-europe-west1 \
   --zone=europe-west1-b \
   --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
+
+### gce-us-east1
+
 ```
 gcloud container clusters create gce-us-east1 \
   --zone=us-east1-b \
   --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
+
+### gce-us-central1
+
 ```
 gcloud container clusters create gce-us-central1 \
   --zone=us-central1-b \
