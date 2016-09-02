@@ -19,7 +19,7 @@ spec:
           path: /etc/ssl
       containers:
       - name: controller-manager
-        image: gcr.io/google_containers/hyperkube-amd64:v1.4.0-alpha.3
+        image: gcr.io/google_containers/hyperkube-amd64:v1.4.0-beta.0 
         args:
           - /hyperkube
           - federation-controller-manager
