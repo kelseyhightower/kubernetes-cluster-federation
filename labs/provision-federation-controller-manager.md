@@ -2,11 +2,17 @@
 
 ## Prerequisites
 
-Store the GCP project name in the `GCP_PROJECT` env var.
+### Store the GCP project name
 
 ```
 export GCP_PROJECT=$(gcloud config list --format='value(core.project)')
 ```
+
+### Create the Federation API Sever Secret Token
+
+The Federation API Sever token was created in the previous lab.
+
+* [Create the Federation API Sever Secret Token](labs/provision-federation-apiserver.md#create-the-federation-api-server-secret)
 
 ## Create the Federated API Server Kubeconfig
 
