@@ -26,14 +26,12 @@ gcloud container clusters create gce-europe-west1 \
 ```
 gcloud container clusters create gce-us-east1 \
   --zone=us-east1-b \
-  --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/n
-dev.clouddns.readwrite"
+  --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
 ```
 gcloud container clusters create gce-us-central1 \
   --zone=us-central1-b \
-  --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/n
-dev.clouddns.readwrite"
+  --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
 
 ### Verify
