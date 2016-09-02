@@ -3,6 +3,17 @@
 ## Kubernetes Objects
 
 ```
+kubectl --context=federation-cluster delete clusters \
+  gce-asia-east1 gce-europe-west1 gce-us-central1 gce-us-east1
+```
+```
+cluster "gce-asia-east1" deleted
+cluster "gce-europe-west1" deleted
+cluster "gce-us-central1" deleted
+cluster "gce-us-east1" deleted
+```
+
+```
 kubectl --context=federation-cluster delete services nginx
 ```
 
