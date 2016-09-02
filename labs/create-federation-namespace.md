@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-Store the GCP project name in the `GCP_PROJECT` env var.
+### Store the GCP Project Name
 
 ```
 export GCP_PROJECT=$(gcloud config list --format='value(core.project)')

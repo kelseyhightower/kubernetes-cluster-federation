@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-### Store the GCP project name
+### Store the GCP Project Name
 
 ```
 export GCP_PROJECT=$(gcloud config list --format='value(core.project)')

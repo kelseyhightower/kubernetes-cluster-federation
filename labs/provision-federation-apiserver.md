@@ -6,7 +6,7 @@ The federated controller manager must be able to locate the federated API server
 
 ## Prerequisites
 
-Store the GCP project name in the `GCP_PROJECT` env var.
+### Store the GCP Project Name
 
 ```
 export GCP_PROJECT=$(gcloud config list --format='value(core.project)')
