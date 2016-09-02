@@ -15,6 +15,21 @@ export GCP_PROJECT=$(gcloud config list --format='value(core.project)')
 
 ## Federated NGINX ReplicaSet
 
+Federated replica sets leverage the same configuration as a non-federated Kubernetes clusters. By default pods created by a replica set are distributed evenly across all configured clusters.
+
+```
+kubectl --context=federation-cluster get clusters
+```
+```
+NAME               STATUS    VERSION   AGE
+gce-asia-east1     Ready     1h
+gce-europe-west1   Ready     1h
+gce-us-central1    Ready     1h
+gce-us-east1       Ready     1h
+```
+
+The following command will create an nginx replica set and create 4 nginx pods.
+
 ```
 kubectl --context=federation-cluster create -f rs/nginx.yaml
 ```
