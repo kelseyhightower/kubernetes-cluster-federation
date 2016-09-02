@@ -1,5 +1,13 @@
 # Provision Federated Controller Manager
 
+## Prerequisites
+
+Store the GCP project name in the `GCP_PROJECT` env var.
+
+```
+export GCP_PROJECT=$(gcloud config list --format='value(core.project)')
+```
+
 ## Create the Federated API Server Kubeconfig
 
 The federation-controller-manager needs a kubeconfig file to connect to the federation-apiserver.
