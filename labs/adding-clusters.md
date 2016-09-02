@@ -7,6 +7,16 @@ To add a cluster to the federation you will need the following information:
 * A vaild kubeconfig for each cluster stored in a Kubernetes secret
 * A cluster object added to the Federated API Server
 
+## Prerequisites
+
+Store the GCP project name in the `GCP_PROJECT` env var.
+
+```
+export GCP_PROJECT=$(gcloud config list --format='value(core.project)')
+```
+
+## Create the Cluster Objects
+
 ### gce-asia-east1
 
 ```

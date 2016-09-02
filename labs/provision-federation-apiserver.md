@@ -4,6 +4,14 @@ The Federated API Server will run in the us-central1 cluster.
 
 The federated controller manager must be able to locate the federated API server when running on the host cluster.
 
+## Prerequisites
+
+Store the GCP project name in the `GCP_PROJECT` env var.
+
+```
+export GCP_PROJECT=$(gcloud config list --format='value(core.project)')
+```
+
 ## Create the Federated API Server Service
 
 ```
