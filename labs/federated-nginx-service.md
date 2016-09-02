@@ -60,6 +60,71 @@ NAME          READY     STATUS    RESTARTS   AGE
 nginx-z5wkd   1/1       Running   0          3m
 ```
 
+## Federated NGINX ReplicaSet with Preferences
+
+An annotation can be used to control which clusters pods are scheduled to.
+
+```
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: nginx-us
+  annotations:
+    federation.kubernetes.io/replica-set-preferences: |
+        {
+            "rebalance": true,
+            "clusters": {
+                "gce-us-east1": {
+                    "minReplicas": 2,
+                    "maxReplicas": 4,
+                    "weight": 1
+                },
+                "gce-us-central1": {
+                    "minReplicas": 2,
+                    "maxReplicas": 4,
+                    "weight": 1
+                }
+            }
+        }
+```
+
+The follow command will create pods only in the `gce-us-east1` and `gce-us-central1` clusters
+
+```
+kubectl --context=federation-cluster create -f rs/nginx-us.yaml
+```
+
+### Verify
+
+List pods in the `gce-us-central1` cluster:
+
+```
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" get pods
+```
+```
+NAME              READY     STATUS    RESTARTS   AGE
+nginx-us-bh867    1/1       Running   0          27s
+nginx-us-p932u    1/1       Running   0          27s
+```
+
+List pods in the `gce-us-east1` cluster:
+
+```
+kubectl --context="gke_${GCP_PROJECT}_us-east1-b_gce-us-east1" get pods
+```
+```
+NAME              READY     STATUS    RESTARTS   AGE
+nginx-us-4rh2t    1/1       Running   0          44s
+nginx-us-ejtvm    1/1       Running   0          44s
+```
+
+Notice there are no `nginx-us` pods running in the `gce-europe-west1` cluster:
+
+```
+kubectl --context="gke_${GCP_PROJECT}_europe-west1-b_gce-europe-west1" get pods
+```
+
+
 ## Federated NGINX Service
 
 Create a federated service object in the `federation-cluster` context.
