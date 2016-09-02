@@ -41,6 +41,12 @@ The names of your cluster contexts will be different based on your GCP project n
 gke_<project-name>_asia-east1-b_gce-asia-east1
 ```
 
+### Store the GCP Project Name
+
+```
+export GCP_PROJECT=$(gcloud config list --format='value(core.project)')
+```
+
 ### Generate Cluster Configs
 
 For each cluster create a kubeconfig file and update the corresponding cluster manifest:
@@ -48,7 +54,7 @@ For each cluster create a kubeconfig file and update the corresponding cluster m
 #### gce-asia-east1
 
 ```
-kubectl config use-context gke_hightowerlabs_asia-east1-b_gce-asia-east1
+kubectl config use-context "gke_${GCP_PROJECT}_asia-east1-b_gce-asia-east1"
 ASIA_SERVER_ADDRESS=$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')
 ```
 ```
@@ -72,7 +78,7 @@ kubectl config view --flatten --minify > kubeconfigs/gce-asia-east1/kubeconfig
 #### gce-europe-west1
 
 ```
-kubectl config use-context gke_hightowerlabs_europe-west1-b_gce-europe-west1
+kubectl config use-context "gke_${GCP_PROJECT}_europe-west1-b_gce-europe-west1"
 EUROPE_SERVER_ADDRESS=$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')
 ```
 ```
@@ -96,7 +102,7 @@ kubectl config view --flatten --minify > kubeconfigs/gce-europe-west1/kubeconfig
 #### gce-us-central1
 
 ```
-kubectl config use-context gke_hightowerlabs_us-central1-b_gce-us-central1
+kubectl config use-context "gke_${GCP_PROJECT}_us-central1-b_gce-us-central1"
 US_CENTRAL_SERVER_ADDRESS=$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')
 ```
 ```
@@ -120,7 +126,7 @@ kubectl config view --flatten --minify > kubeconfigs/gce-us-central1/kubeconfig
 #### gce-us-east1
 
 ```
-kubectl config use-context gke_hightowerlabs_us-east1-b_gce-us-east1
+kubectl config use-context "gke_${GCP_PROJECT}_us-east1-b_gce-us-east1"
 US_EAST_SERVER_ADDRESS=$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')
 ```
 
