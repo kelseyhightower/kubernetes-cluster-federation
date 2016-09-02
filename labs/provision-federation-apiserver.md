@@ -1,15 +1,14 @@
 # Provision Federated API Server
 
-The Federated API Server will run in the us-central1 cluster. Set the kubectl context:
-
-```
-kubectl config use-context gke_hightowerlabs_us-central1-b_gce-us-central1
-```
+The Federated API Server will run in the us-central1 cluster.
 
 The federated controller manager must be able to locate the federated API server when running on the host cluster.
 
+## Create the Federated API Server Service
+
 ```
-kubectl create -f services/federation-apiserver.yaml
+kubectl --context="gke_${GCP_PROJECT}_asia-east1-b_gce-asia-east1" \
+  create -f services/federation-apiserver.yaml
 ```
 
 Wait until the `EXTERNAL-IP` is populated as it will be required to configure the federation-controller-manager.
