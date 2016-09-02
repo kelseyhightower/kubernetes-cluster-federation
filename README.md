@@ -26,7 +26,7 @@ This tutorial will leverage GKE to create 4 Kubernetes clusters across 4 GCP reg
 * [Provision Kubernetes Clusters](labs/cluster-bootstrap.md)
 * [Create Cluster Secrets and Manifests](labs/create-cluster-secrets-and-manifests.md)
 * [Create GCE DNS Managed Zone](labs/cluster-dns-managed-zone.md)
-* [Download an Updated Kubernetes](labs/download-an-updated-kubectl-client.md)
+* [Download an Updated Kubernetes Client](labs/download-an-updated-kubectl-client.md)
 
 > kubectl 1.3.6 or later is required to work with a federated Kubernetes control plane.
 
