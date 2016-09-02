@@ -7,14 +7,16 @@ The federated controller manager must be able to locate the federated API server
 ## Create the Federated API Server Service
 
 ```
-kubectl --context="gke_${GCP_PROJECT}_asia-east1-b_gce-asia-east1" \
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
   create -f services/federation-apiserver.yaml
 ```
 
 Wait until the `EXTERNAL-IP` is populated as it will be required to configure the federation-controller-manager.
 
 ```
-kubectl --namespace=federation get services 
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
+  --namespace=federation \
+  get services 
 ```
 ```
 NAME                   CLUSTER-IP      EXTERNAL-IP    PORT(S)   AGE
@@ -36,13 +38,14 @@ XXXXXXXXXXXXXXXXXXX,admin,admin
 Store the `known-tokens.csv` file in a Kubernetes secret that will be accessed by the federated API server at deployment time.
 
 ```
-kubectl --namespace=federation \
-  create secret generic federation-apiserver-secrets \
-  --from-file=known-tokens.csv
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
+  --namespace=federation \
+  create secret generic federation-apiserver-secrets --from-file=known-tokens.csv
 ```
 
 ```
-kubectl --namespace=federation \
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
+  --namespace=federation \
   describe secrets federation-apiserver-secrets
 ```
 
@@ -55,20 +58,26 @@ The Federated API Server leverages etcd to store cluster configuration and shoul
 Create a persistent disk for the federated API server:
 
 ```
-kubectl create -f pvc/federation-apiserver-etcd.yaml
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
+  --namespace=federation \
+  create -f pvc/federation-apiserver-etcd.yaml
 ```
 
 #### Verify
 
 ```
-kubectl get pvc --namespace=federation
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
+  --namespace=federation \
+  get pvc
 ```
 ```
 NAME                        STATUS    VOLUME                                     CAPACITY   ACCESSMODES   AGE
 federation-apiserver-etcd   Bound     pvc-c49027d3-7099-11e6-848d-42010af00158   10Gi       RWO           5s
 ```
 ```
-kubernetes-cluster-federation $ kubectl get pv --namespace=federation
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
+  --namespace=federation \
+  get pv
 ```
 ```
 NAME                                       CAPACITY   ACCESSMODES   STATUS    CLAIM                                  REASON    AGE
@@ -80,26 +89,32 @@ pvc-c49027d3-7099-11e6-848d-42010af00158   10Gi       RWO           Bound     fe
 Get the federated API server public IP address.
 
 ```
-advertiseAddress=$(kubectl --namespace=federation get services federation-apiserver \
+FEDERATED_API_SERVER_ADDRESS=$(kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
+  --namespace=federation \
+  get services federation-apiserver \
   -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 ```
 
 Edit `deployments/federation-apiserver.yaml` and set the advertise address for the federated API server.
 
 ```
-sed -i "" "s|ADVERTISE_ADDRESS|${advertiseAddress}|g" deployments/federation-apiserver.yaml
+sed -i "" "s|ADVERTISE_ADDRESS|${FEDERATED_API_SERVER_ADDRESS}|g" deployments/federation-apiserver.yaml
 ```
 
 Create the federated API server in the host cluster:
 
 ```
-kubectl create -f deployments/federation-apiserver.yaml
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
+  --namespace=federation \
+  create -f deployments/federation-apiserver.yaml
 ```
 
 ### Verify
 
 ```
-kubectl --namespace=federation get deployments
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
+  --namespace=federation \
+  get deployments
 ```
 ```
 NAME                   DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
@@ -107,7 +122,9 @@ federation-apiserver   1         1         1            0           7s
 ```
 
 ```
-kubectl --namespace=federation get pods
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
+  --namespace=federation \
+  get pods
 ```
 ```
 NAME                                   READY     STATUS    RESTARTS   AGE
