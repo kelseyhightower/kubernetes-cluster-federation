@@ -10,7 +10,9 @@ To add a cluster to the federation you will need the following information:
 ### gce-asia-east1
 
 ```
-kubectl --namespace=federation create secret generic gce-asia-east1 \
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
+  --namespace=federation \
+  create secret generic gce-asia-east1 \
   --from-file=kubeconfigs/gce-asia-east1/kubeconfig
 ```
 
@@ -22,7 +24,9 @@ kubectl --context=federation-cluster \
 ### gce-europe-west1
 
 ```
-kubectl --namespace=federation create secret generic gce-europe-west1 \
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
+  --namespace=federation \
+  create secret generic gce-europe-west1 \
   --from-file=kubeconfigs/gce-europe-west1/kubeconfig
 ```
 
@@ -34,7 +38,9 @@ kubectl --context=federation-cluster \
 ### gce-us-central1
 
 ```
-kubectl --namespace=federation create secret generic gce-us-central1 \
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
+  --namespace=federation \
+  create secret generic gce-us-central1 \
   --from-file=kubeconfigs/gce-us-central1/kubeconfig
 ```
 
@@ -46,7 +52,9 @@ kubectl --context=federation-cluster \
 ### gce-us-east1
 
 ```
-kubectl --namespace=federation create secret generic gce-us-east1 \
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
+  --namespace=federation \
+  create secret generic gce-us-east1 \
   --from-file=kubeconfigs/gce-us-east1/kubeconfig
 ```
 
@@ -67,5 +75,3 @@ gce-europe-west1   Ready               57s
 gce-us-central1    Ready               47s
 gce-us-east1       Ready               34s
 ```
-
-
