@@ -15,27 +15,25 @@ Run the following commands in a different tab to build the clusters in parallel.
 
 ```
 gcloud container clusters create gce-asia-east1 \
-  --scopes cloud-platform \
   --zone asia-east1-b \
-  --scopes "storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
+  --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
 ```
 gcloud container clusters create gce-europe-west1 \
-  --scopes cloud-platform \
   --zone=europe-west1-b \
-  --scopes "storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
+  --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
 ```
 gcloud container clusters create gce-us-east1 \
-  --scopes cloud-platform \
   --zone=us-east1-b \
-  --scopes "storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
+  --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/n
+dev.clouddns.readwrite"
 ```
 ```
 gcloud container clusters create gce-us-central1 \
-  --scopes cloud-platform \
   --zone=us-central1-b \
-  --scopes "storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
+  --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/n
+dev.clouddns.readwrite"
 ```
 
 ### Verify
