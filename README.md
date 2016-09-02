@@ -39,7 +39,7 @@ This tutorial will leverage GKE to create 4 Kubernetes clusters across 4 GCP reg
 
 ## Running Federated Workloads
 
-* [Federated Services](labs/federated-services.md)
+* [Federated NGINX Service](labs/federated-nginx-service.md)
 
 ## Cleaning Up
 

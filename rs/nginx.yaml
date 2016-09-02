@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: nginx
+spec:
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.10
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi

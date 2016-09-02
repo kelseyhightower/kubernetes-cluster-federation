@@ -1,4 +1,17 @@
-# Federated Services
+# Federated NGINX Service
+
+This lab will walk you through creating a federated NGINX service backed by the following federated objects:
+
+* replicaset - to ensure the nginx pod runs 
+* service
+
+## Federated NGINX ReplicaSet
+
+```
+kubectl --context=federation-cluster create -f rs/nginx.yaml
+```
+
+## Federated NGINX Service
 
 Create a federated service object in the `federation-cluster` context.
 
