@@ -11,6 +11,58 @@ This lab will walk you through creating a federated NGINX service backed by the 
 kubectl --context=federation-cluster create -f rs/nginx.yaml
 ```
 
+### Verify
+
+```
+kubectl --context=federation-cluster get rs
+```
+```
+NAME      DESIRED   CURRENT   AGE
+nginx     4         0         13m
+```
+
+### List Pods
+
+#### gce-us-central1
+
+```
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" get pods
+```
+```
+NAME          READY     STATUS    RESTARTS   AGE
+nginx-z5wkd   1/1       Running   0          3m
+```
+
+#### gce-asia-east1
+
+```
+kubectl --context="gke_${GCP_PROJECT}_asia-east1-b_gce-asia-east1" get pods
+```
+```
+NAME          READY     STATUS    RESTARTS   AGE
+nginx-5zbg4   1/1       Running   0          4m
+```
+
+#### gce-europe-west1
+
+```
+kubectl --context="gke_${GCP_PROJECT}_europe-west1-b_gce-europe-west1" get pods
+```
+```
+NAME          READY     STATUS    RESTARTS   AGE
+nginx-eavl4   1/1       Running   0          5m
+```
+
+#### gce-us-east1
+
+```
+kubectl --context="gke_${GCP_PROJECT}_us-east1-b_gce-us-east1" get pods
+```
+```
+NAME          READY     STATUS    RESTARTS   AGE
+nginx-lovnq   1/1       Running   0          6m
+```
+
 ## Federated NGINX Service
 
 Create a federated service object in the `federation-cluster` context.
