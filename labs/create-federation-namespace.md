@@ -9,6 +9,6 @@ export GCP_PROJECT=$(gcloud config list --format='value(core.project)')
 ```
 
 ```
-kubectl --context="gke_${GCP_PROJECT}_asia-east1-b_gce-asia-east1" \
+kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
   create -f ns/federation.yaml
 ```
