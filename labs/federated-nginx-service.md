@@ -1,9 +1,6 @@
 # Federated NGINX Service
 
-This lab will walk you through creating a federated NGINX service backed by the following federated objects:
-
-* replicaset - to ensure the nginx pod runs 
-* service
+This lab will walk you through creating a federated NGINX service using replica sets and services. For more details on how federated replica sets work review the [Federated ReplicaSet Requirements & Design Document](https://docs.google.com/a/google.com/document/d/1C1HEHQ1fwWtEhyl9JYu6wOiIUJffSmFmZgkGta4720I/edit?usp=sharing)
 
 ## Prerequisites
 
