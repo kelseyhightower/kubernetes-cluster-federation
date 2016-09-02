@@ -55,3 +55,7 @@ kubectl config use-context gke_hightowerlabs_us-central1-b_gce-us-central1
 ## Running Federated Workloads
 
 * [Federated Services](labs/federated-services.md)
+
+## Cleaning Up
+
+* [Delete Federated Cluster](labs/cleaning-up.md)
