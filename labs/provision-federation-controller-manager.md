@@ -44,7 +44,7 @@ kubectl config view --flatten --minify > kubeconfigs/federation-apiserver/kubeco
 
 #### Create the Federated API Server Secret
 
-Switch to the host cluster context and create the `federation-apiserver-secret`, which holds the kubeconfig for the federated API server used by the Federated Controller Manager.
+Switch to the host cluster context and create the `federation-apiserver-kubeconfig`, which holds the kubeconfig for the federated API server used by the Federated Controller Manager.
 
 ```
 kubectl config use-context gke_hightowerlabs_us-central1-b_gce-us-central1
@@ -59,7 +59,7 @@ kubectl create secret generic federation-apiserver-kubeconfig \
 Verify
 
 ```
-kubectl --namespace=federation describe secrets federation-apiserver-secret
+kubectl --namespace=federation describe secrets federation-apiserver-kubeconfig
 ```
 
 ### Deploy the Federated Controller Manager
