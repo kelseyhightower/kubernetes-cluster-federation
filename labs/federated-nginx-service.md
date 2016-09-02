@@ -5,6 +5,14 @@ This lab will walk you through creating a federated NGINX service backed by the 
 * replicaset - to ensure the nginx pod runs 
 * service
 
+## Prerequisites
+
+### Store the GCP Project Name
+
+```
+export GCP_PROJECT=$(gcloud config list --format='value(core.project)')
+```
+
 ## Federated NGINX ReplicaSet
 
 ```
