@@ -51,7 +51,7 @@ kubectl config use-context gke_hightowerlabs_us-central1-b_gce-us-central1
 ```
 
 ```
-kubectl create secret generic federation-apiserver-secret \
+kubectl create secret generic federation-apiserver-kubeconfig \
   --namespace=federation \
   --from-file=kubeconfigs/federation-apiserver/kubeconfig
 ```
