@@ -32,6 +32,8 @@ This tutorial will leverage GKE to create 4 Kubernetes clusters across 4 GCP reg
 
 ## Provision Federated Control Plane
 
+The federated control plane must run in a Kubernetes host cluster which has access to a set of cluster configurations and secrets for accessing them. The following labs will walk you through provisioning a federated control plane in the `us-central1` cluster.
+
 * [Create the Federation Namespace](labs/create-federation-namespace.md)
 * [Provision the Federated API Server](labs/provision-federation-apiserver.md)
 * [Provision the Federated Controller Manager](labs/provision-federation-controller-manager.md)
