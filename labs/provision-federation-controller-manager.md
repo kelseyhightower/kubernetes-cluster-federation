@@ -12,7 +12,7 @@ export GCP_PROJECT=$(gcloud config list --format='value(core.project)')
 
 The Federation API Sever token was created in the previous lab.
 
-* [Create the Federation API Sever Secret Token](labs/provision-federation-apiserver.md#create-the-federation-api-server-secret)
+* [Create the Federation API Sever Secret Token](provision-federation-apiserver.md#create-the-federation-api-server-secret)
 
 ## Create the Federated API Server Kubeconfig
 
