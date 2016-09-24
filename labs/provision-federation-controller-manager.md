@@ -57,7 +57,7 @@ kubectl config set-context federation-cluster \
 Switch to the `federation-cluster` context and dump the federated API server credentials:
 
 ```
-kubectl config use-context federation-apiserver
+kubectl config use-context federation-cluster
 ```
 
 ```
