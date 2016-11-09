@@ -93,7 +93,7 @@ FEDERATION_DNS=$(gcloud dns managed-zones list --filter federation | awk '{print
 Edit `deployments/federation-controller-manager.yaml` and set the DNS zone
 
 ```
-sed -i "s|federation.com|$FEDERATION_DNS|g" deployments/federation-controller-manager.yaml
+sed -i "s|federation.com.|$FEDERATION_DNS|g" deployments/federation-controller-manager.yaml
 ```
 
 ```
