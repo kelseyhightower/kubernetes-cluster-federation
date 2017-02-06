@@ -47,3 +47,8 @@ The federated control plane must run in a Kubernetes host cluster which has acce
 ## Cleaning Up
 
 * [Delete Federated Cluster](labs/cleaning-up.md)
+
+
+## Geo testing
+`https://www.geopeeker.com/`
+`https://github.com/debianmaster/federated-ingress-sample`
