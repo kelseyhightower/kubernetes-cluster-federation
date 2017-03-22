@@ -19,7 +19,7 @@ git clone https://github.com/kelseyhightower/kubernetes-cluster-federation.git
 cd kubernetes-cluster-federation
 ```
 
-## Bootrapping Tasks
+## Bootstrapping Tasks
 
 This tutorial will leverage GKE to create 4 Kubernetes clusters across 4 GCP regions.
 
