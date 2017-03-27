@@ -85,6 +85,17 @@ kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
 
 ### Deploy the Federated Controller Manager
 
+Get the DNS zone
+```
+FEDERATION_DNS=$(gcloud dns managed-zones list --filter federation | awk '{print $2}' | grep -v DNS_NAME)
+```
+
+Edit `deployments/federation-controller-manager.yaml` and set the DNS zone
+
+```
+sed -i "s|federation.com.|$FEDERATION_DNS|g" deployments/federation-controller-manager.yaml
+```
+
 ```
 kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
   --namespace=federation \

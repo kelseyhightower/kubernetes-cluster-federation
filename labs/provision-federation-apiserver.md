@@ -106,7 +106,7 @@ FEDERATED_API_SERVER_ADDRESS=$(kubectl --context="gke_${GCP_PROJECT}_us-central1
 Edit `deployments/federation-apiserver.yaml` and set the advertise address for the federated API server.
 
 ```
-sed -i "" "s|ADVERTISE_ADDRESS|${FEDERATED_API_SERVER_ADDRESS}|g" deployments/federation-apiserver.yaml
+sed -i "s|ADVERTISE_ADDRESS|${FEDERATED_API_SERVER_ADDRESS}|g" deployments/federation-apiserver.yaml
 ```
 
 Create the federated API server in the host cluster:
