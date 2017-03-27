@@ -109,6 +109,18 @@ Edit `deployments/federation-apiserver.yaml` and set the advertise address for t
 sed -i "" "s|ADVERTISE_ADDRESS|${FEDERATED_API_SERVER_ADDRESS}|g" deployments/federation-apiserver.yaml
 ```
 
+Get the DNS Zone
+
+```
+FEDERATION_DNS=$(gcloud dns managed-zones list --filter federation | awk '{print $2}' | grep -v DNS_NAME)
+```
+
+Edit `deployments/federation-apiserver.yaml` and set the DNS Zone
+
+```
+sed -i "s|federation.com|$FEDERATION_DNS|g" deployments/federation-controller-manager.yaml
+```
+
 Create the federated API server in the host cluster:
 
 ```
