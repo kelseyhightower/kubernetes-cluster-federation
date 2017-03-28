@@ -77,11 +77,11 @@ kubectl create -f pvc/federation-apiserver-etcd.yaml
 #### Verify
 
 ```
-kubectl -n federation get pvc
+kubectl get pvc
 ```
 
 ```
-kubectl -n federation get pv
+kubectl get pv
 ```
 
 ### Create the Deployment
