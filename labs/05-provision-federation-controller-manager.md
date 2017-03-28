@@ -28,12 +28,12 @@ kubectl config set-cluster federation-cluster \
 Get the token from the `known-tokens.csv` file:
 
 ```
-FEDERATION_CLUSTER_TOKEN=$(cut -d"," -f1 known-tokens.csv)
+FEDERATION_TOKEN=$(cut -d"," -f1 known-tokens.csv)
 ```
 
 ```
 kubectl config set-credentials federation-cluster \
-  --token=${FEDERATION_CLUSTER_TOKEN}
+  --token=${FEDERATION_TOKEN}
 ```
 
 ```
