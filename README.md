@@ -26,7 +26,7 @@ This tutorial will leverage [Google Container Engine](https://cloud.google.com/c
 
 ## Provision Federated Control Plane
 
-The federated control plane must run in a Kubernetes host cluster which has access to a set of cluster configurations and secrets for accessing them. The following labs will walk you through provisioning a federated control plane in the `us-central1` cluster.
+The federated control plane must run in a Kubernetes host cluster which has access to a set of cluster configurations and secrets for accessing them. The following labs will walk you through provisioning a federated control plane in the `us-central1-b` cluster.
 
 * [Provision the Federated API Server](labs/04-provision-federation-apiserver.md)
 * [Provision the Federated Controller Manager](labs/05-provision-federation-controller-manager.md)
