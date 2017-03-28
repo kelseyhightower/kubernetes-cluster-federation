@@ -86,13 +86,6 @@ kubectl get pv
 
 ### Create the Deployment
 
-Get the federated API server public IP address.
-
-```
-$(kubectl get services federation-apiserver \
-  -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-```
-
 Create the `federated-apiserver` configmap:
 
 ```
