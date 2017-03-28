@@ -2,8 +2,6 @@
 
 ## Prerequisites
 
-### Store the GCP Project Name
-
 ```
 kubectl config use-context host-cluster
 ```
