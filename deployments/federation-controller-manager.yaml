@@ -19,14 +19,30 @@ spec:
           path: /etc/ssl
       containers:
       - name: controller-manager
-        image: gcr.io/google_containers/hyperkube-amd64:v1.4.0
+        image: gcr.io/google_containers/hyperkube-amd64:v1.5.5
+        env:
+          - name: POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: ZONE_ID
+            valueFrom:
+              configMapKeyRef:
+                name: federation-controller-manager
+                key: zone-id
+          - name: ZONE_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: federation-controller-manager
+                key: zone-name
         args:
           - /hyperkube
           - federation-controller-manager
           - --master=https://federation-apiserver:443
           - --dns-provider=google-clouddns
           - --federation-name=federation
-          - --zone-name=federation.com.
+          - --zone-id=$(ZONE_ID)
+          - --zone-name=$(ZONE_NAME)
           - --v=2
         volumeMounts:
         - name: ssl
@@ -37,8 +53,3 @@ spec:
             name: https
           - containerPort: 8080
             name: local
-        env:
-          - name: POD_NAMESPACE
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.namespace

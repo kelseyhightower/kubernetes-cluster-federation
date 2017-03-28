@@ -7,12 +7,12 @@ metadata:
         {
             "rebalance": true,
             "clusters": {
-                "gce-us-east1": {
+                "us-east1-b": {
                     "minReplicas": 2,
                     "maxReplicas": 4,
                     "weight": 1
                 },
-                "gce-us-central1": {
+                "us-central1-b": {
                     "minReplicas": 2,
                     "maxReplicas": 4,
                     "weight": 1

@@ -4,10 +4,8 @@ This lab will walk you through creating a federated NGINX service using replica 
 
 ## Prerequisites
 
-### Store the GCP Project Name
-
 ```
-export GCP_PROJECT=$(gcloud config list --format='value(core.project)')
+kubectl config use-context federation-cluster
 ```
 
 ## Federated NGINX ReplicaSet
@@ -15,49 +13,66 @@ export GCP_PROJECT=$(gcloud config list --format='value(core.project)')
 Federated replica sets leverage the same configuration as a non-federated Kubernetes clusters. By default pods created by a replica set are distributed evenly across all configured clusters.
 
 ```
-kubectl --context=federation-cluster get clusters
+kubectl get clusters
 ```
+
 ```
-NAME               STATUS    VERSION   AGE
-gce-asia-east1     Ready     1h
-gce-europe-west1   Ready     1h
-gce-us-central1    Ready     1h
-gce-us-east1       Ready     1h
+NAME             STATUS    AGE
+asia-east1-b     Ready     2m
+europe-west1-b   Ready     2m
+us-central1-b    Ready     2m
+us-east1-b       Ready     2m
 ```
 
 The following command will create an nginx replica set and create 4 nginx pods.
 
 ```
-kubectl --context=federation-cluster create -f rs/nginx.yaml
+kubectl create -f rs/nginx.yaml
 ```
 
 ### Verify
 
 ```
-kubectl --context=federation-cluster get rs
+kubectl get rs
 ```
+
 ```
-NAME      DESIRED   CURRENT   AGE
-nginx     4         0         13m
+NAME      DESIRED   CURRENT   READY     AGE
+nginx     4         4         4         33s
 ```
 
 ### List Pods
 
-List the cluster level nginx pods for the following cluster contexts:
-
-* gke_${GCP_PROJECT}_asia-east1-b_gce-asia-east1
-* gke_${GCP_PROJECT}_europe-west1-b_gce-europe-west1
-* gke_${GCP_PROJECT}_us-east1-b_gce-us-east1
-* gke_${GCP_PROJECT}_us-central1-b_gce-us-central1
-
-#### Example
+```
+CLUSTERS="asia-east1-b europe-west1-b us-east1-b us-central1-b"
+```
 
 ```
-kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" get pods
+for cluster in ${CLUSTERS}; do
+  echo ""
+  echo "${cluster}"
+  kubectl --context=${cluster} get pods
+done
 ```
+
+Output:
+
 ```
+asia-east1-b
 NAME          READY     STATUS    RESTARTS   AGE
-nginx-z5wkd   1/1       Running   0          3m
+nginx-zpdcn   1/1       Running   0          5m
+
+europe-west1-b
+NAME          READY     STATUS    RESTARTS   AGE
+nginx-p8hg0   1/1       Running   0          5m
+
+us-east1-b
+NAME          READY     STATUS    RESTARTS   AGE
+nginx-07ddf   1/1       Running   0          6m
+
+us-central1-b
+NAME          READY     STATUS    RESTARTS   AGE
+nginx-m3vzb   1/1       Running   0          6m
 ```
 
 ## Federated NGINX ReplicaSet with Preferences
@@ -74,12 +89,12 @@ metadata:
         {
             "rebalance": true,
             "clusters": {
-                "gce-us-east1": {
+                "us-east1-b": {
                     "minReplicas": 2,
                     "maxReplicas": 4,
                     "weight": 1
                 },
-                "gce-us-central1": {
+                "us-central1-b": {
                     "minReplicas": 2,
                     "maxReplicas": 4,
                     "weight": 1
@@ -88,41 +103,23 @@ metadata:
         }
 ```
 
-The follow command will create pods only in the `gce-us-east1` and `gce-us-central1` clusters
+The follow command will create pods only in the `us-east1-b` and `us-central1-b` clusters
 
 ```
-kubectl --context=federation-cluster create -f rs/nginx-us.yaml
+kubectl create -f rs/nginx-us.yaml
 ```
 
 ### Verify
 
-List pods in the `gce-us-central1` cluster:
-
 ```
-kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" get pods
-```
-```
-NAME              READY     STATUS    RESTARTS   AGE
-nginx-us-bh867    1/1       Running   0          27s
-nginx-us-p932u    1/1       Running   0          27s
+for cluster in ${CLUSTERS}; do
+  echo ""
+  echo "${cluster}"
+  kubectl --context=${cluster} get pods
+done
 ```
 
-List pods in the `gce-us-east1` cluster:
-
-```
-kubectl --context="gke_${GCP_PROJECT}_us-east1-b_gce-us-east1" get pods
-```
-```
-NAME              READY     STATUS    RESTARTS   AGE
-nginx-us-4rh2t    1/1       Running   0          44s
-nginx-us-ejtvm    1/1       Running   0          44s
-```
-
-Notice there are no `nginx-us` pods running in the `gce-europe-west1` cluster:
-
-```
-kubectl --context="gke_${GCP_PROJECT}_europe-west1-b_gce-europe-west1" get pods
-```
+> Notice there are no `nginx-us` pods running in the `europe-west1-b` or `asia-east1-b` clusters:
 
 
 ## Federated NGINX Service
@@ -130,7 +127,11 @@ kubectl --context="gke_${GCP_PROJECT}_europe-west1-b_gce-europe-west1" get pods
 Create a federated service object in the `federation-cluster` context.
 
 ```
-kubectl --context=federation-cluster create -f services/nginx.yaml
+kubectl config use-context federation-cluster
+```
+
+```
+kubectl create -f services/nginx.yaml
 ```
 
 Wait until the nginx service is propagated across all 4 clusters and the federated service is updated with the details. Currently this can take up to 5 mins to complete.
@@ -140,8 +141,9 @@ Wait until the nginx service is propagated across all 4 clusters and the federat
 Describe the federated nginx service.
 
 ```
-kubectl --context=federation-cluster describe services nginx
+kubectl describe services nginx
 ```
+
 ```
 Name:			nginx
 Namespace:		default
@@ -158,18 +160,13 @@ No events.
 
 ### List Services
 
-List the cluster level nginx services for the following cluster contexts:
-
-* gke_${GCP_PROJECT}_asia-east1-b_gce-asia-east1
-* gke_${GCP_PROJECT}_europe-west1-b_gce-europe-west1
-* gke_${GCP_PROJECT}_us-east1-b_gce-us-east1
-* gke_${GCP_PROJECT}_us-central1-b_gce-us-central1
-
-#### Example
 
 ```
-kubectl --context="gke_${GCP_PROJECT}_us-central1-b_gce-us-central1" \
-  describe services nginx
+for cluster in ${CLUSTERS}; do
+  echo ""
+  echo "${cluster}"
+  kubectl --context=${cluster} describe services nginx
+done
 ```
 
 ```
