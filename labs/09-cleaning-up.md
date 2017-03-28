@@ -15,6 +15,10 @@ kubectl --context=federation-cluster delete clusters ${CLUSTERS[*]}
 ```
 
 ```
+kubectl config use-context host-cluster
+```
+
+```
 kubectl delete ns federation
 ```
 
