@@ -1,0 +1,10 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: federation
+  name: nginx
+spec:
+  backend:
+    serviceName: nginx
+    servicePort: 80

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: apiserver
-        image: gcr.io/google_containers/hyperkube-amd64:v1.5.5
+        image: gcr.io/google_containers/hyperkube-amd64:v1.6.0
         env:
           - name: ADVERTISE_ADDRESS
             valueFrom:
@@ -27,7 +27,6 @@ spec:
           - federation-apiserver
           - --bind-address=0.0.0.0
           - --etcd-servers=http://localhost:2379
-          - --service-cluster-ip-range=10.10.0.0/24
           - --secure-port=443
           - --advertise-address=$(ADVERTISE_ADDRESS)
           - --token-auth-file=/srv/kubernetes/known-tokens.csv
