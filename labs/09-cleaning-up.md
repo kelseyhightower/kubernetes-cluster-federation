@@ -7,6 +7,10 @@ kubectl --context=federation-cluster delete services nginx
 ```
 
 ```
+kubectl --context=federation-cluster delete ing nginx
+```
+
+```
 CLUSTERS="asia-east1-b europe-west1-b us-east1-b us-central1-b"
 ```
 
