@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    run: nginx
+    app: nginx
   name: nginx
 spec:
   ports:
@@ -10,7 +10,6 @@ spec:
     protocol: TCP
     targetPort: 80
     name: http
-    nodePort: 32110
   selector:
-    run: nginx
-  type: NodePort
+    app: nginx
+  type: LoadBalancer
