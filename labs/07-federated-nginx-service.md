@@ -103,7 +103,7 @@ metadata:
         }
 ```
 
-The follow command will create pods only in the `us-east1-b` and `us-central1-b` clusters
+The following command will create pods only in the `us-east1-b` and `us-central1-b` clusters
 
 ```
 kubectl create -f rs/nginx-us.yaml
@@ -186,7 +186,7 @@ Session Affinity:       None
 
 ### Review Cloud DNS Console
 
-The Federated controller manager creates DNS entires in the configured zone.
+The Federated controller manager creates DNS entries in the configured zone.
 
 ![Google Cloud DNS](images/googledns.png)
 
