@@ -16,7 +16,8 @@ Run the following commands in a separate terminal for parallel execution.
 Create the `asia-east1-b` cluster:
 
 ```
-gcloud container clusters create asia-east1-b \
+gcloud beta container clusters create asia-east1-b \
+  --cluster-version 1.6.0 \
   --zone asia-east1-b \
   --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
@@ -24,7 +25,8 @@ gcloud container clusters create asia-east1-b \
 Create the `europe-west1-b` cluster:
 
 ```
-gcloud container clusters create europe-west1-b \
+gcloud beta container clusters create europe-west1-b \
+  --cluster-version 1.6.0 \
   --zone=europe-west1-b \
   --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
@@ -32,7 +34,8 @@ gcloud container clusters create europe-west1-b \
 Create the `us-east1-b` cluster:
 
 ```
-gcloud container clusters create us-east1-b \
+gcloud beta container clusters create us-east1-b \
+  --cluster-version 1.6.0 \
   --zone=us-east1-b \
   --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
@@ -40,7 +43,8 @@ gcloud container clusters create us-east1-b \
 Create the `us-central1-b` cluster:
 
 ```
-gcloud container clusters create us-central1-b \
+gcloud beta container clusters create us-central1-b \
+  --cluster-version 1.6.0 \
   --zone=us-central1-b \
   --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
