@@ -17,7 +17,7 @@ Create the `asia-east1-b` cluster:
 
 ```
 gcloud beta container clusters create asia-east1-b \
-  --cluster-version 1.6.0 \
+  --cluster-version 1.6.1 \
   --zone asia-east1-b \
   --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
@@ -26,7 +26,7 @@ Create the `europe-west1-b` cluster:
 
 ```
 gcloud beta container clusters create europe-west1-b \
-  --cluster-version 1.6.0 \
+  --cluster-version 1.6.1 \
   --zone=europe-west1-b \
   --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
@@ -35,7 +35,7 @@ Create the `us-east1-b` cluster:
 
 ```
 gcloud beta container clusters create us-east1-b \
-  --cluster-version 1.6.0 \
+  --cluster-version 1.6.1 \
   --zone=us-east1-b \
   --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
@@ -44,7 +44,7 @@ Create the `us-central1-b` cluster:
 
 ```
 gcloud beta container clusters create us-central1-b \
-  --cluster-version 1.6.0 \
+  --cluster-version 1.6.1 \
   --zone=us-central1-b \
   --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
