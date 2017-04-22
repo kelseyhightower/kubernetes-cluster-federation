@@ -9,5 +9,5 @@ The follow command will create a DNS zone named `federation`. In a production se
 ```
 gcloud dns managed-zones create federation \
   --description "Kubernetes federation testing" \
-  --dns-name federation.local
+  --dns-name federation.localdomain
 ```
