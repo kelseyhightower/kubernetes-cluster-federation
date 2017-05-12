@@ -4,7 +4,7 @@ This guide will walk you through downloading an updated kubectl client. kubectl 
 
 ### Darwin
 ```
-curl -O https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/darwin/amd64/kubectl
+curl -O https://storage.googleapis.com/kubernetes-release/release/v1.6.2/bin/darwin/amd64/kubectl
 chmod a+x kubectl
 sudo cp kubectl /usr/local/bin/kubectl
 ```
@@ -12,7 +12,7 @@ sudo cp kubectl /usr/local/bin/kubectl
 ### Linux
 
 ```
-curl -O https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/linux/amd64/kubectl
+curl -O https://storage.googleapis.com/kubernetes-release/release/v1.6.2/bin/linux/amd64/kubectl
 chmod a+x kubectl
 sudo cp kubectl /usr/local/bin/kubectl
 ```
