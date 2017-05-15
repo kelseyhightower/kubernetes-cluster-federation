@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: apiserver
-        image: gcr.io/google_containers/hyperkube-amd64:v1.6.0
+        image: gcr.io/google_containers/hyperkube-amd64:v1.6.2
         env:
           - name: ADVERTISE_ADDRESS
             valueFrom:
