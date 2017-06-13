@@ -10,7 +10,7 @@ kubectl config use-context host-cluster
 
 The Federation API Sever token was created in the previous lab.
 
-* [Create the Federation API Sever Secret Token](provision-federation-apiserver.md#create-the-federation-api-server-secret)
+* [Create the Federation API Sever Secret Token](04-provision-federation-apiserver.md#create-the-federation-apiserver-secrets)
 
 ## Create the Federated API Server Kubeconfig
 
