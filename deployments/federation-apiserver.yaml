@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: apiserver
-        image: gcr.io/google_containers/hyperkube-amd64:v1.6.2
+        image: gcr.io/google_containers/hyperkube-amd64:v1.7.1
         env:
           - name: ADVERTISE_ADDRESS
             valueFrom:
@@ -40,7 +40,7 @@ spec:
             mountPath: /srv/kubernetes/
             readOnly: true
       - name: etcd
-        image: quay.io/coreos/etcd:v3.0.7
+        image: quay.io/coreos/etcd:v3.2
         command:
           - "/usr/local/bin/etcd"
         args:
