@@ -17,7 +17,7 @@ Create the `asia-east1-b` cluster:
 
 ```
 gcloud beta container clusters create asia-east1-b \
-  --cluster-version 1.6.2 \
+  --cluster-version 1.7.3 \
   --zone asia-east1-b \
   --scopes "cloud-platform,storage-ro,logging-write,monitoring-write,service-control,service-management,https://www.googleapis.com/auth/ndev.clouddns.readwrite"
 ```
